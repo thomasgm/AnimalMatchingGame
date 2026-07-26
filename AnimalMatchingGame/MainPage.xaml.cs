@@ -10,6 +10,11 @@
             AnimalButtons.IsVisible = false;
         }
 
+        private void NovoVisual_Clicked(object sender, EventArgs e)
+        {
+            Shell.Current.GoToAsync(nameof(NewPage1));
+        }
+
         private void PlayAgainButton_Clicked(object sender, EventArgs e)
         {
             PlayAgainButton.IsVisible = false;
@@ -34,10 +39,11 @@
                 int index = new Random().Next(animalEmoji.Count);
                 button.ClassId = animalEmoji[index];
                 button.Text = "";
+                button.BackgroundColor = Color.FromArgb("#5B4BFF");
                 animalEmoji.RemoveAt(index);
             }
             matchesFound = 0;
-            Dispatcher.StartTimer(TimeSpan.FromSeconds(1), TimerTrick);
+            Dispatcher.StartTimer(TimeSpan.FromMilliseconds(100), TimerTrick);
         }
 
         int tenthsOfSecondsElapsed = 0;
@@ -47,7 +53,7 @@
 
             tenthsOfSecondsElapsed++;
 
-            TimeElapsed.Text = "Time Elapsed: " + (tenthsOfSecondsElapsed / 10F).ToString("0.0s");
+            TimeElapsed.Text = "Tempo jogado (em segundos): " + (tenthsOfSecondsElapsed / 10F).ToString("0.0s");
 
             if (PlayAgainButton.IsVisible == true)
             {
@@ -80,9 +86,9 @@
                     {
                         matchesFound++;
 
-                        // Pinta de uma cor diferente para indicar sucesso (ex: cinza ou mantém azul)
-                        buttonClicked.BackgroundColor = Colors.LightCyan;
-                        lastClicked.BackgroundColor = Colors.LightCyan;
+                        // Pinta de uma cor diferente para indicar sucesso 
+                        buttonClicked.BackgroundColor = Color.FromArgb("#8abb86");
+                        lastClicked.BackgroundColor = Color.FromArgb("#8abb86");
 
                         // Deixa o texto visível permanentemente, mas limpa o ClassId 
                         // para o código saber que esse par já foi resolvido
@@ -99,8 +105,8 @@
                         lastClicked.Text = "";
 
                         // Restaura a cor original
-                        buttonClicked.BackgroundColor = Colors.LightBlue;
-                        lastClicked.BackgroundColor = Colors.LightBlue;
+                        buttonClicked.BackgroundColor = Color.FromArgb("#5B4BFF");
+                        lastClicked.BackgroundColor = Color.FromArgb("#5B4BFF");
                     }
 
                     // Reseta as variáveis de controle do par

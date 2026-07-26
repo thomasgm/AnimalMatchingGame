@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="AnimalMatchingGame.MainPage">
+    x:Class="AnimalMatchingGame.NewPage1">
 
     <ContentPage.Background>
 
@@ -76,16 +76,17 @@
                 <Border
                     Grid.Column="1"
                     Margin="5"
+                    Background="#5B4BFF"
                     StrokeThickness="0"
                     StrokeShape="RoundRectangle 20">
 
                     <Button
     x:Name="PlayAgainButton"
     Text="🎮 Novo Jogo"
-    HorizontalOptions="Fill"
+    WidthRequest="180"
     HeightRequest="55"
     CornerRadius="28"
-                    Background="#5B4BFF"
+    BackgroundColor="Transparent"
     TextColor="White"
     Clicked="PlayAgainButton_Clicked"/>
 
